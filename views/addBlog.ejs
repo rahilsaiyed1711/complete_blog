@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%-include('./partials/head') %>
+    <title>Document</title>
+  </head>
+  <body>
+    <%-include('./partials/nav') %>
+
+    <div class="container mt-3">
+      <form action="/blog" method="post" enctype="multipart/form-data">
+        <div class="mb-2">
+          <label for="title">What's you're thinking about</label>
+          <input type="text" class="form-control" id="title" name="title"/>
+        </div>
+        <div class="mt-2">
+          <label for="body">Write about it</label>
+          <textarea name="body" class="form-control" id="body"></textarea>
+        </div>
+        <div class="mt-2">
+          <input type="file" class="form-control" style="width: 235px;" id="coverImage" name="coverImage"/>
+        </div>
+        <button type="submit" class=" mt-2 btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <%-include('./partials/footer') %>
+  </body>
+  <%-include('./partials/scripts') %>
+</html>

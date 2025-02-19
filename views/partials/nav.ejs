@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm" style="margin-left: 10px;">
+  <!-- Brand -->
+  <a class="navbar-brand" href="/">My Blog</a>
+
+  <!-- Toggler for mobile view -->
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar Links -->
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav ms-auto">
+      <!-- Home Link -->
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+
+      <% if(locals.user) { %>
+        <!-- Add Blog Post Link -->
+        <li class="nav-item">
+          <a class="nav-link" href="/blog/add-new">Add New Post</a>
+        </li>
+
+        <!-- User Dropdown -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <%= user.email %>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/user/logout">Logout</a></li>
+          </ul>
+        </li>
+      <% } else { %>
+        <!-- Sign Up and Sign In Links -->
+        <li class="nav-item">
+          <a class="nav-link" href="/user/signup">Create Account</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/user/signin">Sign In</a>
+        </li>
+      <% } %>
+    </ul>
+  </div>
+</nav>
